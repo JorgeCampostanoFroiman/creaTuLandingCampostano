@@ -5,12 +5,16 @@ const NavBar = () => {
   return (
     <nav>
 
-    <h3>title</h3>
     <div>
-        <button>muebles</button>
-        <button>cuadros</button>
-        <button>relojes</button>
+        <ul>
+          <li>MyLogo</li>
+          <li>Cuadros</li>
+          <li>Muebles</li>
+          <li>Relojes</li>
+        </ul>
     </div>
+
+    
     <CartWidget/>
     </nav>
   )
