@@ -4,13 +4,14 @@ import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import TestButton from './components/TestButton/TestButton';
 import ItemCount from './components/ItemCount/ItemCount';
+import { ChakraProvider } from '@chakra-ui/react';
+
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-
+    <ChakraProvider>
     <NavBar/>
     <ItemListContainer greeting={'Welcome'}/>
     {/* <TestButton
@@ -19,7 +20,7 @@ function App() {
       onClickCallback ={() => alert ('Cambiar de color')}
       />
       <ItemCount/> */}
-    </>
+      </ChakraProvider>
   )
 }
 
