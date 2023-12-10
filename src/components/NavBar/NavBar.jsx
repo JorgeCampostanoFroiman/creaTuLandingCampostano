@@ -1,45 +1,21 @@
 import React from 'react'
 import CartWidget from '../CartWidget/CartWidget'
-import { Flex, Box, Link, Heading, Menu, MenuButton, MenuList, MenuItem, Button } from '@chakra-ui/react';
+import { Flex, Box, Heading, Menu, MenuButton, MenuList, MenuItem, Button } from '@chakra-ui/react';
 import logo from '../../assets/Lorem.jpg';
+import {Link, NavLink} from 'react-router-dom'
 
 const NavBar = () => {
   return (
-
-    <Flex align="center" bg='lightsalmon' p='20px' borderRadius={'10px'}>
-      <Box p="2" >
-                <Heading color="white">
-                <img src={logo} width={'10%'} alt="Logo" />
-                </Heading>
-            </Box>
-            
-            <Box  display="flex" alignItems="center" pos={'relative'} right={'100px'}>
-
-                <Link color="white" m={'20px'}>
-                <Button>Inicio</Button>
-                </Link>
-
-                <Menu width="220px">
-                <MenuButton as={Button} m={'20px'} width="230px"  justifyContent={'center'} >
-                    Categorías
-                </MenuButton>
-                <MenuList  >
-                    <MenuItem justifyContent={'center'} _hover={{color:"green"}}>Cuadros</MenuItem>
-                    <MenuItem justifyContent={'center'} _hover={{color:"green"}}>Portallaves</MenuItem>
-                    <MenuItem justifyContent={'center'} _hover={{color:"green"}}>Percheros</MenuItem>
-                    <MenuItem justifyContent={'center'} _hover={{color:"green"}}>Muebles</MenuItem>
-                    <MenuItem justifyContent={'center'} _hover={{color:"green"}}>Relojes</MenuItem>
-                </MenuList>
-                </Menu>
-
-                <Button  m={'20px'}>
-              <CartWidget bg='white'/>
-              </Button>
-                
-                
-            </Box>
-            
-    </Flex>
+    <nav className='NavBar'>
+      <Link to='/'>
+        <h3>Inicio</h3>
+      </Link>
+      <div className='Categorias'>
+        <NavLink to={`/category/minijuegos`} className={({ isActive}) => isActive ? 'ActiveOption' : 'Option'}>Mini Juegos</NavLink>
+      </div>
+      <CartWidget/>
+    </nav>
+   
   )
 }
 

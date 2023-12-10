@@ -2,18 +2,33 @@ import { useState } from 'react'
 import './App.css'
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import TestButton from './components/TestButton/TestButton';
-import ItemCount from './components/ItemCount/ItemCount';
 import { ChakraProvider } from '@chakra-ui/react';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <ChakraProvider>
-    <NavBar/>
-    <ItemListContainer greeting={'Welcome'}/>
+
+        <BrowserRouter>
+          <NavBar/>
+          <Routes>
+            <Route path='/' element={<ItemListContainer/>}/>
+            <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
+            <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
+            <Route path='*' element={<h1>404 NOT FOUND</h1>}/>
+          </Routes> 
+        </BrowserRouter>
+    
+    
+
+
+    {/* <Example/> */}
+
+
+
     {/* <TestButton
       color ='yellow'
       label ='probando'
@@ -21,7 +36,7 @@ function App() {
       />
       <ItemCount/> */}
       </ChakraProvider>
-  )
+  );
 }
 
 export default App
